@@ -1,9 +1,20 @@
-class Node {
-    data: number;
-    next: Node | null;
+class LinkedList {
+    head: Node | null;
 
-    constructor(data: number, next: Node | null = null) {
-        this.data = data;
-        this.next = next;
+    constructor() {
+        this.head = null;
+    }
+
+    insertAtEnd(data: number): void {
+        const newNode = new Node(data);
+        if (!this.head) {
+            this.head = newNode;
+        } else {
+            let current = this.head;
+            while (current.next) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
     }
 }
